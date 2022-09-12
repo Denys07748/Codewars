@@ -1,0 +1,2 @@
+!function(){function o(o){var l=o.split("");if(l.includes("#")){var n=l.indexOf("#");l=l.slice(0,n)}return l.join("")}var l,n,c,e;console.log(function(o){for(var l=[],n=1;n<o;n+=1)n%2!=0&&l.push(n);return l.length}(7)),console.log(o("www.codewars.com#about")),console.log(o("www.codewars.com/katas/?page=1#about")),console.log(o("www.codewars.com/katas/")),console.log((n=(l="hello world!").split(" "),c=[],e=n.length-1,console.log(n),n.map((function(){c.push(n[e]),e-=1})),console.log(c),l=c.join(" "),console.log(l),l))}();
+//# sourceMappingURL=index.bd210dc1.js.map
