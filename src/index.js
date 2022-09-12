@@ -92,3 +92,27 @@ console.log(removeUrlAnchor('www.codewars.com/katas/?page=1#about')),
 
   console.log(removeUrlAnchor('www.codewars.com/katas/'));
 //   'www.codewars.com/katas/'
+
+// 4. Reversed Words
+
+function reverseWords(str) {
+  const arrey = str.split(' ');
+  const arreyReverse = [];
+  let indexLastWord = arrey.length - 1;
+
+  console.log(arrey);
+  arrey.map(() => {
+    arreyReverse.push(arrey[indexLastWord]);
+    indexLastWord -= 1;
+  });
+
+  console.log(arreyReverse);
+
+  str = arreyReverse.join(' ');
+
+  console.log(str);
+
+  return str; // reverse those words
+}
+
+console.log(reverseWords('hello world!'));
