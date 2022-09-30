@@ -115,4 +115,161 @@ function reverseWords(str) {
   return str; // reverse those words
 }
 
+// function reverseWords(str) {
+//   return str.split(' ').reverse().join(' ');
+// }
+
 console.log(reverseWords('hello world!'));
+
+// 5.N-th Power
+
+// Вам дан массив с положительными числами и неотрицательным числом N.
+// Нужно найти N-ю степень элемента в массиве с индексом N. Если N вне
+// массива, то вернуть -1. Не забывайте, что первый элемент имеет индекс 0.
+
+function index(array, n) {
+  if (!array[n]) {
+    return -1;
+  }
+  let result = array[n];
+
+  for (let i = 1; i < n; i++) {
+    result *= array[n];
+  }
+
+  return result;
+}
+
+// const index = (array, n) => array.length > n ? Math.pow(array[n], n) : -1;
+
+console.log(index([1, 3, 10, 100], 3));
+
+// 6.Shortest Word
+
+// Просто, учитывая строку слов, вернуть длину кратчайшего слова (слов).
+
+// Строка никогда не будет пустой, и вам не нужно учитывать разные типы данных.
+
+function findShort(s) {
+  const array = s.split(' ');
+  let minWord = array[0];
+
+  array.map(el => {
+    if (minWord.length > el.length) {
+      minWord = el;
+    }
+  });
+  return minWord.length;
+}
+
+console.log(findShort('bitcoin take over the world maybe who knows perhaps'));
+
+// 7.Quarter of the year
+
+// Дан месяц как целое число от 1 до 12, вернитесь к тому,
+// к какому кварталу года он принадлежит, как целое число.
+
+// Например: 2-й месяц (февраль) является частью первого квартала;
+// 6 месяц (июнь) входит во второй квартал; и месяц 11 (ноябрь) является частью четвертого квартала.
+
+const quarterOf = month => {
+  if (month > 0 && month < 4) {
+    return 1;
+  } else if (month > 3 && month < 7) {
+    return 2;
+  } else if (month > 6 && month < 10) {
+    return 3;
+  } else if (month > 9) {
+    return 4;
+  }
+};
+
+console.log(quarterOf(7));
+
+// 7.Hamming Distance - Part 1: Binary codes
+
+// Расстояние Хэмминга двух строк одинаковой длины — это количество позиций,
+// в которых эти две строки различаются. Другими словами,
+// количество замен символов, необходимых для преобразования одной строки в другую.
+
+// Для этой первой Ката вы напишете функцию hamming_distance(a, b) с двумя строками
+// одинаковой длины, содержащими только 0 и 1 в качестве параметров.
+// Нет необходимости проверять параметры на достоверность (но вы можете, если хотите).
+// Выходом функции должно быть расстояние Хэмминга двух строк в виде целого числа.
+
+function hammingDistance(a, b) {
+  const array1 = a.split('');
+  const array2 = b.split('');
+  let total = 0;
+
+  array1.map((el, i, array) => {
+    if (el !== array2[i]) {
+      total += 1;
+    }
+  });
+  return total;
+}
+
+console.log(hammingDistance('1010', '0101'));
+
+// 8. Reverse words
+
+// Завершите функцию, которая принимает строковый параметр и переворачивает
+// каждое слово в строке. Все пробелы в строке должны быть сохранены.
+
+function reverseWordsLetters(str) {
+  const array = str.split(' ');
+  const arrayReverse = [];
+
+  array.map(word => arrayReverse.push(word.split('').reverse().join('')));
+
+  return arrayReverse.join(' ');
+}
+
+console.log(
+  reverseWordsLetters('The quick brown fox jumps over the lazy dog.')
+);
+
+// 9.Square Every Digit
+
+// Добро пожаловать. В этой ката вас просят возвести в квадрат каждую цифру числа и соединить их.
+
+// Например, если мы пропустим через функцию 9119, получится 811181, потому что 92 — это 81, а 12 — это 1.
+
+// Примечание. Функция принимает целое число и возвращает целое число.
+
+function squareDigits(num) {
+  const arraySquareEvDigit = [];
+  const numString = num + '';
+
+  console.log(numString);
+
+  numString.split('').map(digit => arraySquareEvDigit.push(digit ** 2));
+
+  console.log(arraySquareEvDigit);
+
+  return Number(arraySquareEvDigit.join(''));
+}
+
+console.log(squareDigits(3212));
+
+// 10.Don't give me five!
+
+// В этом ката вы получаете начальный номер и конечный номер региона и
+// должны вернуть количество всех чисел, кроме номеров с 5 в нем.
+// Начальный и конечный номер включительно!
+// Результат может содержать пятерки. ;-)
+// Начальный номер всегда будет меньше конечного. Оба числа могут быть и отрицательными!
+
+function dontGiveMeFive(start, end) {
+  const array = [];
+  for (let i = start; i <= end; i++) {
+    const str = i + '';
+    if (!str.split('').includes('5')) {
+      array.push(i);
+    }
+  }
+  return array.length;
+}
+
+console.log(dontGiveMeFive(4, 17));
