@@ -273,3 +273,19 @@ function dontGiveMeFive(start, end) {
 }
 
 console.log(dontGiveMeFive(4, 17));
+
+// 11.DNA to RNA Conversion
+
+// Рибонуклеиновая кислота, РНК, является основной молекулой-мессенджером в клетках.
+// РНК немного отличается от ДНК своей химической структурой и не содержит тимина.
+// В РНК тимин заменен другой нуклеиновой кислотой урацилом («U»).
+
+// Создайте функцию, которая переводит заданную строку ДНК в РНК.
+
+// function DNAtoRNA(dna) {
+//   return dna.replace(/T/g, 'U');
+// }
+
+function DNAtoRNA(dna) {
+  return dna.split('T').join('U');
+}
