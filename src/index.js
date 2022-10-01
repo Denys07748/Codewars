@@ -289,3 +289,25 @@ console.log(dontGiveMeFive(4, 17));
 function DNAtoRNA(dna) {
   return dna.split('T').join('U');
 }
+
+// 12.Strong Number (Special Numbers Series #2)
+
+//Сильное число — это число, сумма факториала его цифр равна самому числу.
+// Например, 145 сильно, так как 1! + 4! + 5! = 1 + 24 + 120 = 145.
+// Учитывая число, найдите, является ли оно сильным или нет, и верните либо «СИЛЬНОЕ !!!!» или "Не Сильный!!".
+
+function strong(n) {
+  const total = String(n)
+    .split('')
+    .reduce((previousValue, value) => {
+      let factorial = 1;
+      for (let i = 1; i <= value; i++) {
+        factorial *= i;
+      }
+      return previousValue + factorial;
+    }, 0);
+
+  return n === total ? 'STRONG!!!!' : 'Not Strong !!';
+}
+
+console.log(strong(145));
