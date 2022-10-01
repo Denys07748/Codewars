@@ -311,3 +311,20 @@ function strong(n) {
 }
 
 console.log(strong(145));
+
+// 13.Wilson primes
+
+// Простые числа Вильсона удовлетворяют следующему условию. Пусть P представляет собой простое число.
+// Затем, ((P-1)! + 1) / (P * P)
+// должен дать целое число.
+// Ваша задача — создать функцию, возвращающую истину, если заданное число является простым числом Вильсона.
+
+function amIWilson(p) {
+  let factorial = 1;
+  for (let i = 1; i < p; i++) {
+    factorial *= i;
+  }
+  return (factorial + 1) % p ** 2 === 0 ? true : false;
+}
+
+console.log(amIWilson(5));
