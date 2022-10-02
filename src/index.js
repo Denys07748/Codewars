@@ -328,3 +328,15 @@ function amIWilson(p) {
 }
 
 console.log(amIWilson(5));
+
+// 14.Area of a Square
+
+// Завершите функцию, которая вычисляет площадь красного квадрата,
+// когда в качестве входных данных задана длина дуги окружности A.
+// Возвращает результат, округленный до двух знаков после запятой.
+
+function squareArea(A) {
+  return Number((((180 * A) / (Math.PI * 90)) ** 2).toFixed(2));
+}
+
+console.log(squareArea(14.05));
