@@ -340,3 +340,51 @@ function squareArea(A) {
 }
 
 console.log(squareArea(14.05));
+
+// 15.Deodorant Evaporator
+
+// Эта программа проверяет срок службы испарителя, содержащего газ.
+
+// Мы знаем содержимое испарителя (содержимое в мл), процент пены или газа,
+// теряемый каждый день (evap_per_day) и пороговое значение (threshold) в процентах,
+// выше которого испаритель становится бесполезным. Все числа строго положительные.
+
+// Программа сообщает n-й день (в виде целого числа), когда испаритель не будет использоваться.
+
+// Example:
+// evaporator(10, 10, 5) -> 29
+
+// Примечание:
+// Содержимое по сути не обязательно в теле функции "испаритель",
+// вы можете использовать его или не использовать, как хотите.
+// Кто-то предпочитает рассуждать содержанием, кто-то — только процентами.
+// Это зависит от вас, но вы должны оставить его в качестве параметра,
+// потому что тесты используют его в качестве аргумента.
+
+// function evaporator(content, evap_per_day, threshold) {
+//   const thresholdMl = content * (threshold / 100);
+//   let currentAmount = content;
+//   let days = 0;
+//   let counter = content * (evap_per_day / 100);
+//   console.log(thresholdMl, currentAmount, counter);
+
+//   for (let i = currentAmount; i > thresholdMl; i -= counter) {
+//     days++;
+//     currentAmount -= currentAmount * (evap_per_day / 100);
+//     counter = currentAmount * (evap_per_day / 100);
+//     console.log(currentAmount);
+//   }
+//   return days;
+// }
+
+function evaporator(content, evap_per_day, threshold) {
+  var days = 0;
+  var gas = 100;
+  while (gas >= threshold) {
+    gas -= (gas * evap_per_day) / 100;
+    days++;
+  }
+  return days;
+}
+
+console.log(evaporator(10, 10, 5));
