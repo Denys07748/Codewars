@@ -388,3 +388,54 @@ function evaporator(content, evap_per_day, threshold) {
 }
 
 console.log(evaporator(10, 10, 5));
+
+// 16.The Poet And The Pendulum
+
+// Задача
+// Учитывая массив/список [] из n целых чисел, расположите их так же, как движение маятника туда-сюда.
+
+// Наименьший элемент списка целых чисел должен находиться в центре массива/списка.
+
+// Высшее, чем наименьшее, идет вправо.
+// Следующее большее число идет слева от минимального числа и так далее, туда-сюда, как в маятнике.
+
+// способ 1 (свой)
+// function pendulum(values) {
+//   let val = [...values];
+//   let newArr = [];
+//   for (let i = 1; i <= values.length; i++) {
+//     let minInd = val.indexOf(Math.min(...val));
+//     let arr = val.splice(minInd, 1);
+//     i % 2 === 0 ? (newArr = newArr.concat(arr)) : (newArr = arr.concat(newArr));
+//   }
+//   return newArr;
+// }
+
+// способ 2
+// function pendulum(values) {
+//   let sort = values.slice().sort((a, b) => a - b),
+//     parts = { left: [], right: [] };
+
+//   for (let i = 0; i < sort.length; i++)
+//     parts[i % 2 ? 'right' : 'left'].push(sort[i]);
+
+//   return parts.left.reverse().concat(parts.right);
+// }
+
+// способ 3
+// const pendulum = values =>
+//   values
+//     .sort((a, b) => a - b)
+//     .reduce((pre, val) => (pre.length % 2 ? [...pre, val] : [val, ...pre]), []);
+
+// способ 4
+function pendulum(a) {
+  let list = [],
+    arr = [];
+  a.sort((b, c) => b - c).forEach((e, i) => (i % 2 ? arr : list).push(e));
+  console.log(list, arr);
+  return list.reverse().concat(arr);
+}
+
+console.log(pendulum([8, 7, 10, 3]));
+console.log(pendulum([27, 27, 19, 21, 22, 28, 24]));
