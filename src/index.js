@@ -439,3 +439,33 @@ function pendulum(a) {
 
 console.log(pendulum([8, 7, 10, 3]));
 console.log(pendulum([27, 27, 19, 21, 22, 28, 24]));
+
+// 17.Determine if the poker hand is flush
+
+// Определите, является ли покерная рука флешем, то есть являются ли пять карт одной масти.
+
+// Вашей функции будет передан список/массив из 5 строк, каждая из которых представляет
+// покерную карту в формате «5H» (пятерка червей), что означает значение карты, за которым
+// следует начальная буква ее масти (червы, пики, бубны или клубы). Джокеры не включены.
+
+// Ваша функция должна возвращать true, если рука представляет собой флеш, и false в противном случае.
+
+function isFlush(cards) {
+  const suitFirst = cards[0][cards[0].length - 1];
+  let boolean = true;
+
+  cards.map(e => {
+    let suit = e[e.length - 1];
+    suitFirst === suit ? boolean : (boolean = false);
+  });
+
+  return boolean;
+}
+
+// способ 2
+// function isFlush(cards) {
+//   return cards.every(a => cards[0].slice(-1) === a.slice(-1));
+// }
+
+console.log(isFlush(['AS', '3S', '9S', 'KS', '4S']));
+console.log(isFlush(['AD', '4S', '7H', 'KC', '5S']));
