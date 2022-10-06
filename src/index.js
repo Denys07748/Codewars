@@ -12,31 +12,6 @@
 
 function toCamelCase(str) {}
 
-// describe('Tests', () => {
-//   it('test', () => {
-//     Test.assertEquals(
-//       toCamelCase(''),
-//       '',
-//       'An empty string was provided but not returned'
-//     );
-//     Test.assertEquals(
-//       toCamelCase('the_stealth_warrior'),
-//       'theStealthWarrior',
-//       "toCamelCase('the_stealth_warrior') did not return correct value"
-//     );
-//     Test.assertEquals(
-//       toCamelCase('The-Stealth-Warrior'),
-//       'TheStealthWarrior',
-//       "toCamelCase('The-Stealth-Warrior') did not return correct value"
-//     );
-//     Test.assertEquals(
-//       toCamelCase('A-B-C'),
-//       'ABC',
-//       "toCamelCase('A-B-C') did not return correct value"
-//     );
-//   });
-// });
-
 // 2.Count Odd Numbers below n
 
 // Учитывая число n, вернуть количество положительных нечетных чисел меньше n
@@ -492,3 +467,14 @@ function expressionMatter(a, b, c) {
 
 console.log(expressionMatter(2, 1, 3));
 console.log(expressionMatter(2, 1, 1));
+
+// 19.Removing Elements
+
+// Возьмите массив и удалите каждый второй элемент из массива.
+// Всегда сохраняйте первый элемент и начинайте удаление со следующего элемента.
+
+function removeEveryOther(arr) {
+  return arr.filter((el, ind) => ind % 2 === 0);
+}
+
+console.log(removeEveryOther([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
