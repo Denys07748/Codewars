@@ -478,3 +478,59 @@ function removeEveryOther(arr) {
 }
 
 console.log(removeEveryOther([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
+
+// 20.Total amount of points
+
+//Результаты матчей нашей команды записываются в виде набора строк.
+// Каждое совпадение представлено строкой в ​​формате «x:y»,
+// где x — это счет нашей команды, а y — счет наших противников.
+
+// Например: ["3:1", "2:2", "0:1", ...]
+
+// Очки за каждый матч начисляются следующим образом:
+
+// если x > y: 3 очка (победа)
+// если x < y: 0 очков (проигрыш)
+// если x = y: 1 балл (ничья)
+// Нам нужно написать функцию, которая берет этот набор и возвращает количество очков,
+// которое наша команда (x) набрала в чемпионате по приведенным выше правилам.
+
+// function points(games) {
+//   return games.reduce((pre, el) => {
+//     if (el[0] > el[2]) {
+//       return pre + 3;
+//     } else if (el[0] === el[2]) {
+//       return pre + 1;
+//     } else {
+//       return pre;
+//     }
+//   }, 0);
+// }
+
+// способ 2
+function points(games) {
+  return games.reduce(
+    (pre, el) => (el[0] > el[2] ? pre + 3 : el[0] === el[2] ? pre + 1 : pre),
+    0
+  );
+}
+
+console.log(
+  points(['1:0', '2:0', '3:0', '4:0', '2:1', '3:1', '4:1', '3:2', '4:2', '4:3'])
+);
+
+// 21.
+
+function sameCase(a, b) {
+  if (
+    (a === a.toLowerCase() && b === b.toLowerCase()) ||
+    (a === a.toUpperCase() && b === b.toUpperCase())
+  ) {
+    return 1;
+  } else {
+    return 0;
+  }
+}
+
+console.log(sameCase('C', 'B'));
+console.log(sameCase('C', 'b'));
