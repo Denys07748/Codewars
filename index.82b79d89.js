@@ -1,0 +1,2 @@
+var o,n,t;console.log([[0,1,2,3,45],[10,11,12,13,14],[20,21,22,23,24],[30,31,32,33,34]].flatMap((o=>o+"")).join("\n")),console.log(function(o){const n=o.sort(((o,n)=>o-n));let t=0;for(let o=0;o<n.length-1;o++)t+=n[o+1]-n[o];return t}([-13,4,-19,5,15,-12,-20,1,-13,-10,-7,-9,-5])),console.log((o=[0,1,4,5],n=[2,6,7,8],t=[3,9,10,11],Math.max(...o)>Math.min(...n)&&Math.max(...o)>Math.min(...t)));
+//# sourceMappingURL=index.82b79d89.js.map
