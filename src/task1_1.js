@@ -103,3 +103,65 @@ function eqSumPowdig(hMax, exp) {
 }
 
 console.log(eqSumPowdig(370, 3));
+
+// 5.Survive the attack
+
+// Каждый солдат атакует солдата противника с тем же индексом массива. Выживший - это число с наибольшим значением.
+// Если значение одинаковое, они оба погибают
+// Если одно из значений пусто (различная длина массива), солдат с непустым значением выживает.
+// Чтобы выжить, обороняющаяся сторона должна иметь больше выживших, чем атакующая сторона.
+// В случае, если с обеих сторон одинаковое количество выживших,
+// побеждает команда с наибольшей начальной силой атаки. Если общая сила атаки обеих сторон одинакова, верните true.
+// Начальная сила атаки представляет собой сумму всех значений в каждом массиве.
+
+// EXAMPLES
+
+// attackers=[ 1, 3, 5, 7 ]   defenders=[ 2, 4, 6, 8 ]
+//0 survivors                4 survivors
+//return true
+
+// attackers=[ 1, 3, 5, 7 ]   defenders=[ 2, 4 ]
+//2 survivors  (16 damage)   2 survivors (6 damage)
+//return false
+
+// attackers=[ 1, 3, 5, 7 ]   defenders=[ 2, 4, 0, 8 ]
+//1 survivors                3 survivors
+//return true
+
+function hasSurvived(attackers, defenders) {
+  const attPowAt = attackers.reduce((pre, el) => pre + el, 0);
+  const attPowDef = defenders.reduce((pre, el) => pre + el, 0);
+  let attServ = 0;
+  let defServ = 0;
+
+  if (attackers.length >= defenders.length) {
+    attackers.map((el, i) =>
+      el > defenders[i]
+        ? attServ++
+        : el < defenders[i]
+        ? defServ++
+        : el == defenders[i]
+        ? 0
+        : attServ++
+    );
+  } else {
+    defenders.map((el, i) =>
+      el > attackers[i]
+        ? defServ++
+        : el < attackers[i]
+        ? attServ++
+        : el == attackers[i]
+        ? 0
+        : defServ++
+    );
+  }
+
+  return attServ < defServ
+    ? true
+    : attServ > defServ
+    ? false
+    : attPowAt <= attPowDef;
+}
+
+console.log(hasSurvived([2, 9], [1, 1, 3, 8]));
+console.log(hasSurvived([10, 10, 1, 1], [4, 4, 7, 7]));
