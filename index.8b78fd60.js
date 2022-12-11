@@ -1,2 +1,0 @@
-var o,t,n;console.log([[0,1,2,3,45],[10,11,12,13,14],[20,21,22,23,24],[30,31,32,33,34]].flatMap((o=>o+"")).join("\n")),console.log(function(o){const t=o.sort(((o,t)=>o-t));let n=0;for(let o=0;o<t.length-1;o++)n+=t[o+1]-t[o];return n}([-13,4,-19,5,15,-12,-20,1,-13,-10,-7,-9,-5])),console.log((o=[0,1,4,5],t=[2,6,7,8],n=[3,9,10,11],Math.max(...o)>Math.min(...t)&&Math.max(...o)>Math.min(...n))),console.log(function(o,t){const n=[];for(let l=2;l<=o;l++)(l+"").split("").reduce(((o,n)=>o+Math.pow(+n,t)),0)===l&&n.push(l);return n}(370,3));
-//# sourceMappingURL=index.8b78fd60.js.map
