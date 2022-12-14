@@ -165,3 +165,21 @@ function hasSurvived(attackers, defenders) {
 
 console.log(hasSurvived([2, 9], [1, 1, 3, 8]));
 console.log(hasSurvived([10, 10, 1, 1], [4, 4, 7, 7]));
+
+// ## Example 6 - Опертор % и методы строк
+
+// Напиши скрипт который переведёт значение `totalMinutes` (количество минут) в
+// строку в формате часов и минут `HH:MM`.
+
+// - 70 покажет 01:10
+// - 450 покажет 07:30
+// - 1441 покажет 24:01
+
+const totalMinutes = 450;
+
+const hours = (Math.floor(totalMinutes / 60) + '').padStart(2, '0');
+const minutes = ((totalMinutes % 60) + '').padStart(2, '0');
+
+const time = `${hours}:${minutes}`;
+
+console.log(time);
